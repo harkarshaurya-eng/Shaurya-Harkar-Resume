@@ -23,8 +23,9 @@ npx shaurya-resume
 Copy and paste the command for your operating system to clone, install, and launch the resume in one go:
 
 ### 🪟 Windows (PowerShell)
+*This command checks if the folder exists, cleans it, and launches the full build.*
 ```powershell
-git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git; cd Shaurya-Harkar-Resume; npm install; npm run build; npm start
+if (Test-Path Shaurya-Harkar-Resume) { Remove-Item -Recurse -Force Shaurya-Harkar-Resume }; git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git; cd Shaurya-Harkar-Resume; npm install; npm run build; npm start
 ```
 
 ### 🍎 macOS (Terminal / iTerm2)
