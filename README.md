@@ -9,9 +9,33 @@ Welcome to the source code for my interactive, React-powered (Ink) Command Line 
 
 ---
 
-## 💻 Local Development & Testing
+## 🌍 Quick Start (All Operating Systems)
 
-### 1. Build the Data
+Because this CLI is built on Node.js, it runs universally across Windows, macOS, and Linux without any C++ compilation. You only need **Node.js** and **Python** installed.
+
+### Prerequisites Install:
+- **Windows**: `winget install OpenJS.NodeJS Python.Python.3.11`
+- **macOS**: `brew install node python`
+- **Linux (Ubuntu/Debian)**: `sudo apt install nodejs npm python3`
+
+### Run Locally (Universal Commands):
+Once you have Node and Python installed on any operating system, open your terminal inside this folder and run:
+```bash
+# 1. Download your GitHub stats and profile picture
+python build.py
+
+# 2. Install the interactive UI libraries
+npm install
+
+# 3. Launch the Terminal Resume 
+npm start
+```
+
+---
+
+## 💻 Local Development & Advanced Testing
+
+### 1. Rebuild the Data
 Before running or publishing the app, you must seed the dynamic data from GitHub.
 ```bash
 python build.py
