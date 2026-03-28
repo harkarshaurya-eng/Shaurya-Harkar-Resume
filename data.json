@@ -1,0 +1,96 @@
+{
+  "about": {
+    "name": "Shaurya Harkar",
+    "title": "Senior Software Architect & Systems Engineer",
+    "bio": "Passionate about building highly-optimized, globally scaled architectural systems. Experienced in C++, Node.js, and bare-metal integrations.",
+    "location": "Remote / Global"
+  },
+  "skills": [
+    {
+      "category": "Core Languages",
+      "items": [
+        "C++",
+        "Python",
+        "JavaScript/TypeScript",
+        "Rust"
+      ]
+    },
+    {
+      "category": "Systems & Cloud",
+      "items": [
+        "Node.js",
+        "Docker",
+        "AWS",
+        "CMake",
+        "Linux/WSL",
+        "Git"
+      ]
+    },
+    {
+      "category": "Frameworks",
+      "items": [
+        "React",
+        "Ink",
+        "FTXUI",
+        "Next.js",
+        "Flutter"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Senior Software Architect",
+      "company": "Tech Innovations Inc.",
+      "duration": "2023 - Present",
+      "bullets": [
+        "Architected a scalable, multi-threaded C++ microservice backend handling 10k+ requests per second.",
+        "Decreased AWS cloud expenditure by 40% through strict container optimization and caching matrices."
+      ]
+    },
+    {
+      "role": "Software Developer Intern",
+      "company": "Global Systems LLC",
+      "duration": "2022 - 2023",
+      "bullets": [
+        "Engineered cross-platform automated testing suites for the flagship ESP32 IoT application.",
+        "Collaborated with senior engineers to migrate legacy React pipelines to Next.js."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.S. in Computer Science",
+      "university": "University of Technology",
+      "year": "2020 - 2024",
+      "details": "Specialization in Systems Engineering and Distributed Computing. GPA: 3.9/4.0"
+    }
+  ],
+  "projects": [
+    {
+      "name": "ESP32 Emulator",
+      "description": "A high-performance C++ Emulator mapping real-world physical pin instructions to virtual execution engines.",
+      "stars": "Loading...",
+      "forks": "Loading..."
+    },
+    {
+      "name": "Algorand App",
+      "description": "Decentralized state-machine smart contract framework heavily bridging web3 cryptography.",
+      "stars": "Loading...",
+      "forks": "Loading..."
+    },
+    {
+      "name": "WhatsApp Bot",
+      "description": "An autonomous AI triage integration designed to manage thousands of concurrent message requests via dynamic queues.",
+      "stars": "Loading...",
+      "forks": "Loading..."
+    }
+  ],
+  "contact": {
+    "email": "shaurya@example.com",
+    "github": "https://github.com/harkarshaurya-eng",
+    "linkedin": "https://linkedin.com/in/shaurya-harkar"
+  },
+  "metadata": {
+    "last_updated": "2026-03-28 07:00:25"
+  }
+}

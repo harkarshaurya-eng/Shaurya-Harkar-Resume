@@ -19,6 +19,34 @@ RESUME_DATA = {
         {"category": "Systems & Cloud", "items": ["Node.js", "Docker", "AWS", "CMake", "Linux/WSL", "Git"]},
         {"category": "Frameworks", "items": ["React", "Ink", "FTXUI", "Next.js", "Flutter"]},
     ],
+    "experience": [
+        {
+            "role": "Senior Software Architect",
+            "company": "Tech Innovations Inc.",
+            "duration": "2023 - Present",
+            "bullets": [
+                "Architected a scalable, multi-threaded C++ microservice backend handling 10k+ requests per second.",
+                "Decreased AWS cloud expenditure by 40% through strict container optimization and caching matrices."
+            ]
+        },
+        {
+            "role": "Software Developer Intern",
+            "company": "Global Systems LLC",
+            "duration": "2022 - 2023",
+            "bullets": [
+                "Engineered cross-platform automated testing suites for the flagship ESP32 IoT application.",
+                "Collaborated with senior engineers to migrate legacy React pipelines to Next.js."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "degree": "B.S. in Computer Science",
+            "university": "University of Technology",
+            "year": "2020 - 2024",
+            "details": "Specialization in Systems Engineering and Distributed Computing. GPA: 3.9/4.0"
+        }
+    ],
     "projects": [
         {
             "name": "ESP32 Emulator",
@@ -82,7 +110,7 @@ def fetch_profile_photo():
 
 def main():
     fetch_github_stats()
-    fetch_profile_photo()
+    # fetch_profile_photo() Disabled to preserve custom user-uploaded portrait
     
     output_path = os.path.join(os.path.dirname(__file__), "data.json")
     with open(output_path, "w", encoding="utf-8") as file:

@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load the compiled static data
-const rawData = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8');
+const rawData = fs.readFileSync(path.join(__dirname, '../data.json'), 'utf8');
 const resumeData = JSON.parse(rawData);
 
 // Cyberpunk theme gradient
@@ -38,6 +38,32 @@ const SkillsSection = () => (
             <Box key={skillGroup.category} flexDirection="column" marginBottom={1}>
                 <Text bold color="cyan">{skillGroup.category}:</Text>
                 <Text color="white">  {skillGroup.items.join(' • ')}</Text>
+            </Box>
+        ))}
+    </Box>
+);
+
+const ExperienceSection = () => (
+    <Box flexDirection="column" paddingLeft={2}>
+        {resumeData.experience.map(exp => (
+            <Box key={exp.company} flexDirection="column" marginBottom={1}>
+                <Text bold color="blueBright">{exp.role} <Text color="gray">@ {exp.company}</Text></Text>
+                <Text color="cyan">[{exp.duration}]</Text>
+                {exp.bullets.map((bullet, i) => (
+                    <Text key={i} color="white">  • {bullet}</Text>
+                ))}
+            </Box>
+        ))}
+    </Box>
+);
+
+const EducationSection = () => (
+    <Box flexDirection="column" paddingLeft={2}>
+        {resumeData.education.map(edu => (
+            <Box key={edu.degree} flexDirection="column" marginBottom={1}>
+                <Text bold color="greenBright">{edu.degree}</Text>
+                <Text color="cyan">{edu.university} | {edu.year}</Text>
+                <Text color="gray">  {edu.details}</Text>
             </Box>
         ))}
     </Box>
@@ -78,12 +104,14 @@ const App = () => {
         // Try to load the profile picture fallback as ANSI graphics
         const loadImg = async () => {
             try {
-                const imgPath = path.join(__dirname, 'profile.jpg');
+                const imgPath = path.join(__dirname, '../profile.jpg');
                 if (fs.existsSync(imgPath)) {
-                    // Instruct terminalImage to render tightly bounding box sizes 
-                    // so it doesn't break the CSS-like flex layouts in Ink.
-                    const ascii = await terminalImage.file(imgPath, { width: '30%', preserveAspectRatio: true });
-                    setImageRendered(ascii);
+                    // Instruct terminalImage to render at a higher resolution (40 cells wide)
+                    // and omit height to preserve the source aspect ratio.
+                    const img = await terminalImage.file(imgPath, {
+                        width: 45
+                    });
+                    setImageRendered(img);
                 }
             } catch (err) {
                 setImageRendered("[No Access Privileges for Visual Portrait]");
@@ -107,8 +135,10 @@ const App = () => {
 
     const items = [
         { label: 'ABOUT ME', value: 'about' },
+        { label: 'EXPERIENCE LOG', value: 'experience' },
         { label: 'PROPRIETARY PROJECTS', value: 'projects' },
         { label: 'TECHNICAL SKILLS', value: 'skills' },
+        { label: 'EDUCATION ARCHIVE', value: 'education' },
         { label: 'COMM LINK', value: 'contact' },
     ];
 
@@ -119,11 +149,11 @@ const App = () => {
     return (
         <Box flexDirection="column" margin={2} padding={1} borderStyle="round" borderColor="magenta">
             {/* Header: Picture + Name */}
-            <Box flexDirection="row" marginBottom={1}>
-                <Box width="30%" marginRight={2}>
+            <Box flexDirection="row" marginBottom={1} alignItems="flex-start">
+                <Box marginRight={3} borderStyle="single" borderColor="blue">
                     <Text>{imageRendered}</Text>
                 </Box>
-                <Box flexDirection="column" flexGrow={1} justifyContent="center">
+                <Box flexDirection="column" flexGrow={1} justifyContent="center" paddingTop={1}>
                     <Text bold>{cyberpunkGradient("SHAURYA HARKAR // LEVEL 99 ARCHITECT")}</Text>
                     <Text color="gray">System Status: SECURE. Offline rendering complete.</Text>
                     <Text color="gray">Data Last Synced: {resumeData.metadata.last_updated}</Text>
@@ -140,6 +170,8 @@ const App = () => {
                 <Box width="65%" paddingLeft={2} flexDirection="column">
                     <Text bold color="magentaBright" marginBottom={1}>[ DATABASE : {view.toUpperCase()} ]</Text>
                     {view === 'about' && <AboutSection />}
+                    {view === 'experience' && <ExperienceSection />}
+                    {view === 'education' && <EducationSection />}
                     {view === 'skills' && <SkillsSection />}
                     {view === 'projects' && <ProjectsSection />}
                     {view === 'contact' && <ContactSection />}

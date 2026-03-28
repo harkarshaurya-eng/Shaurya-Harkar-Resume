@@ -1,4 +1,6 @@
 node_modules/
-data.json
-profile.jpg
+*.log
 .DS_Store
+.env
+# Keep dist/ for binary distribution in this specific resume project
+# dist/ 
