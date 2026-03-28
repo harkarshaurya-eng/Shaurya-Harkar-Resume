@@ -1,0 +1,33 @@
+{
+  "name": "shaurya-resume",
+  "version": "1.0.0",
+  "description": "Shaurya Harkar - Interactive CLI Resume",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "shaurya-resume": "./index.js"
+  },
+  "scripts": {
+    "build": "python build.py",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git"
+  },
+  "keywords": [
+    "resume",
+    "cli",
+    "ink"
+  ],
+  "author": "Shaurya Harkar",
+  "license": "MIT",
+  "dependencies": {
+    "gradient-string": "^3.0.0",
+    "ink": "^6.8.0",
+    "ink-select-input": "^6.2.0",
+    "ink-spinner": "^5.0.0",
+    "react": "^19.2.4",
+    "terminal-image": "^4.2.0"
+  }
+}
