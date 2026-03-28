@@ -8,8 +8,8 @@ A production-grade, interactive terminal resume built using **React (Ink)**. Thi
 
 ---
 
-## ⚡ Instant Access (Recommended)
-You can run the resume directly without cloning any code. 
+## ⚡ Instant Run (Recommended)
+Launch the resume instantly without cloning any code. 
 
 **Requirements:** [Node.js](https://nodejs.org/) installed.
 
@@ -19,73 +19,44 @@ npx shaurya-resume
 
 ---
 
-## 🌟 Key Features
-- **Cyberpunk UI**: Vibrant terminal theme with dynamic gradients powered by `gradient-string`.
-- **System Boot Sequence**: Interactive "Diagnostic" spinner simulating a futuristic login.
-- **Native ANSI Portrait**: High-fidelity terminal-based image rendering (optimized for 45-cell width).
-- **Static-Data Pipeline**: Built-in Python scraper (`build.py`) that pre-emptively caches your live GitHub stars and forks to ensure zero-latency.
-- **Interactive Navigation**: Use your arrow keys to flick between 'About', 'Experience', 'Projects', and 'Contact' with zero flicker.
+## 💻 Setup & Run (One-Liner)
+Copy and paste the command for your operating system to clone, install, and launch the resume in one go:
 
----
-
-## 💻 Developer Setup (Build from Source)
-
-### 1. Prerequisites
-- **Node.js** (v18+)
-- **Python 3** (Only for rebuilding `data.json`)
-- **Modern Terminal**: (PowerShell, iTerm2, or GNOME Terminal)
-
-### 2. Manual Installation
-
-#### 🪟 Windows (PowerShell)
+### 🪟 Windows (PowerShell)
 ```powershell
-# Clone & Enter
-git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git
-cd Shaurya-Harkar-Resume
-
-# Build & Launch
-npm install
-npm run build
-npm start
+git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git; cd Shaurya-Harkar-Resume; npm install; npm run build; npm start
 ```
 
-#### 🍎 macOS / 🐧 Linux (Bash/Zsh)
+### 🍎 macOS (Terminal / iTerm2)
 ```bash
-# Clone & Enter
-git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git
-cd Shaurya-Harkar-Resume
+git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git && cd Shaurya-Harkar-Resume && npm install && npm run build && npm start
+```
 
-# Build & Launch
-npm install
-npm run build
-npm start
+### 🐧 Linux
+```bash
+git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git && cd Shaurya-Harkar-Resume && npm install && npm run build && npm start
 ```
 
 ---
 
-## 🛠️ Configuration & Customization
-Modify the resume behavior without touching the core React logic:
-
-1. **Personal Information**: Edit `data.json` to update your biography, experience, and contact links.
-2. **Profile Picture**: Replace `profile.jpg` in the root folder with your own headshot.
-3. **Live Stats**: Run `npm run build` to pull fresh data from your GitHub repositories automatically.
+## 🌟 Key Features
+- **Cyberpunk UI**: Vibrant terminal theme with dynamic gradients.
+- **Native ANSI Portrait**: Optimized high-fidelity terminal image rendering.
+- **Static-Data Pipeline**: Python-driven stats caching for zero-latency execution.
+- **Interactive Navigation**: Seamless transitions between 'Experience', 'Projects', and 'Contact'.
 
 ---
 
-## 🎨 Best Experience Recommendation
-To ensure the Cyberpunk gradients and ANSI portrait look their best, please use:
-- **Windows**: [Windows Terminal](https://aka.ms/terminal)
-- **macOS**: [iTerm2](https://iterm2.com/)
-- **Cross-Platform**: [Alacritty](https://alacritty.org/) or [WezTerm](https://wezfurlong.org/wezterm/)
+## 🛠️ Customization
+1. **Personal Info**: Update `data.json`.
+2. **Profile Photo**: Replace `profile.jpg`.
+3. **Refresh Stats**: Run `npm run build` (requires Python).
 
 ---
 
 ## 📦 Distribution
-This project is configured for global `npm` distribution. 
-
 1. **Build**: `npm run build`
-2. **Login**: `npm login`
-3. **Publish**: `npm publish`
+2. **Publish**: `npm publish` (after `npm login`)
 
 ---
 
