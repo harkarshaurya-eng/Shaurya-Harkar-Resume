@@ -1,46 +1,24 @@
-# Shaurya Harkar Resume Website
-
-A polished terminal-inspired resume website built as a static site for GitHub Pages.
-
-## Stack
-
-- HTML
-- CSS
-- JavaScript
+- HTML5
+- Semantic markup
+- CSS custom properties
+- CSS Grid
+- Flexbox
+- Responsive web design
+- Mobile-first adaptation
+- Terminal-inspired UI design
+- Terminal boot sequence
+- Black and white color system
+- Scrollable content panels
+- Static asset rendering
 - JSON-driven content
-- GitHub Pages static hosting
-
-## Local Preview
-
-Serve the repository root so `data.json` can be loaded correctly:
-
-```powershell
-python -m http.server 4173
-```
-
-Then open:
-
-```text
-http://localhost:4173
-```
-
-## Content Updates
-
-- Edit `data.json` to update resume content.
-- Replace `profile.jpg` to change the portrait.
-
-## Deployment
-
-Use GitHub Pages with:
-
-- Source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/(root)`
-
-The `.nojekyll` file is included so GitHub Pages serves the static files directly.
-
-Pages URL:
-
-```text
-https://harkarshaurya-eng.github.io/Shaurya-Harkar-Resume/
-```
+- Vanilla JavaScript
+- DOM manipulation
+- Dynamic section rendering
+- Smooth scrolling
+- Intersection Observer
+- Accessible image alt text
+- Focus-visible interactions
+- Git
+- GitHub
+- GitHub Pages
+- `.nojekyll`

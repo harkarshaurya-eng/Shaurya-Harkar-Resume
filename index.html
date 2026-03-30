@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="boot-screen" id="boot-screen" aria-hidden="true">
+      <div class="boot-panel">
+        <p class="boot-title">resume-terminal.exe</p>
+        <div class="boot-log" id="boot-log">
+          <p>&gt; initializing interface...</p>
+        </div>
+      </div>
+    </div>
+
     <div class="screen-glow" aria-hidden="true"></div>
     <div class="site-shell">
       <header class="terminal-window hero-shell">
@@ -32,10 +41,19 @@
 
         <div class="hero-grid">
           <section class="hero-copy" aria-labelledby="hero-name">
-            <p class="shell-prompt">$ ./launch-resume --mode showcase</p>
-            <div class="hero-heading">
-              <p class="eyebrow">PROFESSIONAL PROFILE</p>
-              <h1 id="hero-name">Loading profile...</h1>
+            <p class="shell-prompt">$ ./open --resume --terminal</p>
+            <div class="identity-row">
+              <div class="hero-heading">
+                <p class="eyebrow">PROFESSIONAL PROFILE</p>
+                <h1 id="hero-name">Loading profile...</h1>
+              </div>
+
+              <aside class="portrait-shell">
+                <div class="portrait-frame">
+                  <div class="portrait-badge">PROFILE.IMG</div>
+                  <img src="./profile.jpg" alt="Portrait of Shaurya Harkar" class="portrait-image" />
+                </div>
+              </aside>
             </div>
             <p class="hero-title" id="hero-title"></p>
             <p class="hero-tagline" id="hero-tagline"></p>
@@ -60,13 +78,6 @@
 
             <div class="action-row" id="hero-actions"></div>
           </section>
-
-          <aside class="portrait-shell">
-            <div class="portrait-frame">
-              <div class="portrait-badge">PROFILE.IMG</div>
-              <img src="./profile.jpg" alt="Portrait of Shaurya Harkar" class="portrait-image" />
-            </div>
-          </aside>
         </div>
       </header>
 

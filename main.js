@@ -10,6 +10,7 @@ const sectionDefinitions = [
 const byId = (id) => document.getElementById(id);
 
 const elements = {
+  bootLog: byId("boot-log"),
   terminalLabel: byId("terminal-label"),
   heroName: byId("hero-name"),
   heroTitle: byId("hero-title"),
@@ -24,6 +25,16 @@ const elements = {
   sectionStack: byId("section-stack"),
   terminalScroll: byId("terminal-scroll")
 };
+
+document.body.classList.add("is-booting");
+
+const bootLines = [
+  "booting terminal shell...",
+  "mounting profile assets...",
+  "reading resume dataset...",
+  "rendering interface panes...",
+  "launch complete"
+];
 
 function escapeHtml(value = "") {
   return String(value)
@@ -320,7 +331,31 @@ function renderApp(data) {
   setupNavigation();
 }
 
+function wait(duration) {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, duration);
+  });
+}
+
+async function playBootSequence(label = "resume-terminal") {
+  elements.bootLog.innerHTML = "";
+
+  for (let index = 0; index < bootLines.length; index += 1) {
+    const line = document.createElement("p");
+    const prefix = index === bootLines.length - 1 ? `${label}>` : ">";
+    line.textContent = `${prefix} ${bootLines[index]}`;
+    elements.bootLog.append(line);
+    await wait(index === bootLines.length - 1 ? 320 : 180);
+  }
+
+  await wait(260);
+  document.body.classList.remove("is-booting");
+  document.body.classList.add("is-ready");
+}
+
 async function loadResume() {
+  const bootPromise = playBootSequence("resume-terminal");
+
   try {
     const response = await fetch("./data.json", { cache: "no-store" });
 
@@ -330,6 +365,7 @@ async function loadResume() {
 
     const data = await response.json();
     renderApp(data);
+    await bootPromise;
   } catch (error) {
     elements.sectionStack.innerHTML = `
       <section class="section-card">
@@ -343,6 +379,8 @@ async function loadResume() {
         <p class="copy-block">${escapeHtml(error.message)}</p>
       </section>
     `;
+
+    await bootPromise;
   }
 }
 
