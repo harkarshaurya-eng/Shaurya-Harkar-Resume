@@ -35,6 +35,7 @@ const bootLines = [
   "rendering interface panes...",
   "launch complete"
 ];
+const assetVersion = "20260330-3";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -357,7 +358,7 @@ async function loadResume() {
   const bootPromise = playBootSequence("resume-terminal");
 
   try {
-    const response = await fetch("./data.json", { cache: "no-store" });
+    const response = await fetch(`./data.json?v=${assetVersion}`, { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error(`Unable to load data: ${response.status}`);
