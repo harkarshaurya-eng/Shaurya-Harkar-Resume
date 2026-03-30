@@ -1,59 +1,102 @@
 {
   "about": {
     "name": "Shaurya Harkar",
-    "title": "Senior Software Architect & Systems Engineer",
-    "bio": "Passionate about building highly-optimized, globally scaled architectural systems. Experienced in C++, Node.js, and bare-metal integrations.",
-    "location": "Remote / Global"
+    "title": "Web Designer & Full-Stack Developer",
+    "tagline": "Designing terminal-inspired interfaces and shipping full-stack products with polish.",
+    "bio": "I build immersive digital experiences that balance visual identity, responsive UI, and dependable backend thinking. My work blends product design instincts with implementation discipline so ideas move cleanly from concept to deployment.",
+    "location": "India / Remote",
+    "availability": "Available for freelance, contract, and full-time opportunities.",
+    "highlights": [
+      "Terminal-inspired interfaces with strong visual direction",
+      "End-to-end delivery from UI systems to backend integration",
+      "Performance-minded builds focused on clarity and maintainability"
+    ]
   },
+  "stats": [
+    {
+      "label": "Focus",
+      "value": "UI Systems"
+    },
+    {
+      "label": "Stack",
+      "value": "React + Node"
+    },
+    {
+      "label": "Workflow",
+      "value": "Design to Deploy"
+    },
+    {
+      "label": "Status",
+      "value": "Remote Ready"
+    }
+  ],
   "skills": [
     {
-      "category": "Core Languages",
+      "category": "Frontend Design",
       "items": [
-        "C++",
-        "Python",
-        "JavaScript/TypeScript",
-        "Rust"
+        "Responsive UI",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Motion Design",
+        "Accessibility"
       ]
     },
     {
-      "category": "Systems & Cloud",
+      "category": "Backend & Platform",
       "items": [
         "Node.js",
+        "Express",
+        "REST APIs",
         "Docker",
         "AWS",
-        "CMake",
-        "Linux/WSL",
-        "Git"
+        "GitHub Actions"
       ]
     },
     {
-      "category": "Frameworks",
+      "category": "Creative Delivery",
       "items": [
-        "React",
-        "Ink",
-        "FTXUI",
-        "Next.js",
-        "Flutter"
+        "Design Systems",
+        "Brand-Led Layouts",
+        "Performance Tuning",
+        "Component Architecture",
+        "Git",
+        "Developer Experience"
       ]
     }
   ],
   "experience": [
     {
-      "role": "Senior Software Architect",
+      "role": "Lead Full-Stack Developer",
       "company": "Tech Innovations Inc.",
       "duration": "2023 - Present",
+      "summary": "Leading product delivery across interface design, frontend architecture, and scalable service integrations.",
       "bullets": [
-        "Architected a scalable, multi-threaded C++ microservice backend handling 10k+ requests per second.",
-        "Decreased AWS cloud expenditure by 40% through strict container optimization and caching matrices."
+        "Designed and shipped responsive product surfaces that improved usability across desktop and mobile workflows.",
+        "Built Node.js service layers and reusable frontend patterns that accelerated delivery across multiple releases.",
+        "Turned complex product requirements into clean implementation plans with a strong focus on maintainable systems."
+      ],
+      "stack": [
+        "React",
+        "Node.js",
+        "AWS",
+        "Design Systems"
       ]
     },
     {
-      "role": "Software Developer Intern",
+      "role": "Frontend & Platform Developer",
       "company": "Global Systems LLC",
       "duration": "2022 - 2023",
+      "summary": "Worked across modern frontend migration, internal tooling, and quality improvements for production releases.",
       "bullets": [
-        "Engineered cross-platform automated testing suites for the flagship ESP32 IoT application.",
-        "Collaborated with senior engineers to migrate legacy React pipelines to Next.js."
+        "Collaborated on modern React pipelines, improving performance, accessibility, and implementation consistency.",
+        "Developed internal tooling and testing support for cross-platform application releases.",
+        "Partnered with senior engineers to translate evolving product needs into dependable frontend components."
+      ],
+      "stack": [
+        "React",
+        "Testing",
+        "Platform Tooling"
       ]
     }
   ],
@@ -62,35 +105,56 @@
       "degree": "B.S. in Computer Science",
       "university": "University of Technology",
       "year": "2020 - 2024",
-      "details": "Specialization in Systems Engineering and Distributed Computing. GPA: 3.9/4.0"
+      "details": "Specialization in systems engineering, product development, and distributed computing."
     }
   ],
   "projects": [
     {
-      "name": "ESP32 Emulator",
-      "description": "A high-performance C++ Emulator mapping real-world physical pin instructions to virtual execution engines.",
-      "stars": "Loading...",
-      "forks": "Loading..."
+      "name": "Resume Terminal",
+      "description": "A cinematic resume website that presents professional experience inside a custom terminal-inspired interface.",
+      "outcome": "Transforms a standard resume into an immersive portfolio presentation with strong personal branding.",
+      "stars": "Featured",
+      "forks": "UI Case Study",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "link": "https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume"
     },
     {
       "name": "Algorand App",
-      "description": "Decentralized state-machine smart contract framework heavily bridging web3 cryptography.",
-      "stars": "Loading...",
-      "forks": "Loading..."
+      "description": "A decentralized application concept focused on stateful workflows, cryptographic interactions, and clear user flows.",
+      "outcome": "Explores blockchain product UX with a stronger emphasis on accessibility and structured frontend patterns.",
+      "stars": "Web3",
+      "forks": "Product Build",
+      "stack": [
+        "React",
+        "Web3",
+        "Smart Contracts"
+      ]
     },
     {
       "name": "WhatsApp Bot",
-      "description": "An autonomous AI triage integration designed to manage thousands of concurrent message requests via dynamic queues.",
-      "stars": "Loading...",
-      "forks": "Loading..."
+      "description": "An automation-first messaging workflow designed to triage requests, coordinate queues, and reduce manual overhead.",
+      "outcome": "Improves response handling through systemized message routing and backend orchestration.",
+      "stars": "Automation",
+      "forks": "Backend System",
+      "stack": [
+        "Node.js",
+        "APIs",
+        "Queueing"
+      ]
     }
   ],
   "contact": {
     "email": "shaurya@example.com",
     "github": "https://github.com/harkarshaurya-eng",
-    "linkedin": "https://linkedin.com/in/shaurya-harkar"
+    "linkedin": "https://linkedin.com/in/shaurya-harkar",
+    "cta": "Open for collaborations where strong design and dependable engineering need to work together."
   },
   "metadata": {
-    "last_updated": "2026-03-28 07:16:41"
+    "last_updated": "2026-03-30",
+    "terminal_label": "shaurya@resume-terminal"
   }
 }

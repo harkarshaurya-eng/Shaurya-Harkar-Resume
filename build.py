@@ -1,42 +1,65 @@
-import urllib.request
 import json
 import os
 from datetime import datetime
 
-GITHUB_USERNAME = "harkarshaurya-eng"
-API_URL = f"https://api.github.com/users/{GITHUB_USERNAME}/repos"
-
-# Define the precise fallback structural data in case of API failure or ratelimiting
 RESUME_DATA = {
     "about": {
         "name": "Shaurya Harkar",
-        "title": "Senior Software Architect & Systems Engineer",
-        "bio": "Passionate about building highly-optimized, globally scaled architectural systems. Experienced in C++, Node.js, and bare-metal integrations.",
-        "location": "Remote / Global"
+        "title": "Web Designer & Full-Stack Developer",
+        "tagline": "Designing terminal-inspired interfaces and shipping full-stack products with polish.",
+        "bio": "I build immersive digital experiences that balance visual identity, responsive UI, and dependable backend thinking. My work blends product design instincts with implementation discipline so ideas move cleanly from concept to deployment.",
+        "location": "India / Remote",
+        "availability": "Available for freelance, contract, and full-time opportunities.",
+        "highlights": [
+            "Terminal-inspired interfaces with strong visual direction",
+            "End-to-end delivery from UI systems to backend integration",
+            "Performance-minded builds focused on clarity and maintainability"
+        ]
     },
+    "stats": [
+        {"label": "Focus", "value": "UI Systems"},
+        {"label": "Stack", "value": "React + Node"},
+        {"label": "Workflow", "value": "Design to Deploy"},
+        {"label": "Status", "value": "Remote Ready"}
+    ],
     "skills": [
-        {"category": "Core Languages", "items": ["C++", "Python", "JavaScript/TypeScript", "Rust"]},
-        {"category": "Systems & Cloud", "items": ["Node.js", "Docker", "AWS", "CMake", "Linux/WSL", "Git"]},
-        {"category": "Frameworks", "items": ["React", "Ink", "FTXUI", "Next.js", "Flutter"]},
+        {
+            "category": "Frontend Design",
+            "items": ["Responsive UI", "React", "Next.js", "TypeScript", "Motion Design", "Accessibility"]
+        },
+        {
+            "category": "Backend & Platform",
+            "items": ["Node.js", "Express", "REST APIs", "Docker", "AWS", "GitHub Actions"]
+        },
+        {
+            "category": "Creative Delivery",
+            "items": ["Design Systems", "Brand-Led Layouts", "Performance Tuning", "Component Architecture", "Git", "Developer Experience"]
+        }
     ],
     "experience": [
         {
-            "role": "Senior Software Architect",
+            "role": "Lead Full-Stack Developer",
             "company": "Tech Innovations Inc.",
             "duration": "2023 - Present",
+            "summary": "Leading product delivery across interface design, frontend architecture, and scalable service integrations.",
             "bullets": [
-                "Architected a scalable, multi-threaded C++ microservice backend handling 10k+ requests per second.",
-                "Decreased AWS cloud expenditure by 40% through strict container optimization and caching matrices."
-            ]
+                "Designed and shipped responsive product surfaces that improved usability across desktop and mobile workflows.",
+                "Built Node.js service layers and reusable frontend patterns that accelerated delivery across multiple releases.",
+                "Turned complex product requirements into clean implementation plans with a strong focus on maintainable systems."
+            ],
+            "stack": ["React", "Node.js", "AWS", "Design Systems"]
         },
         {
-            "role": "Software Developer Intern",
+            "role": "Frontend & Platform Developer",
             "company": "Global Systems LLC",
             "duration": "2022 - 2023",
+            "summary": "Worked across modern frontend migration, internal tooling, and quality improvements for production releases.",
             "bullets": [
-                "Engineered cross-platform automated testing suites for the flagship ESP32 IoT application.",
-                "Collaborated with senior engineers to migrate legacy React pipelines to Next.js."
-            ]
+                "Collaborated on modern React pipelines, improving performance, accessibility, and implementation consistency.",
+                "Developed internal tooling and testing support for cross-platform application releases.",
+                "Partnered with senior engineers to translate evolving product needs into dependable frontend components."
+            ],
+            "stack": ["React", "Testing", "Platform Tooling"]
         }
     ],
     "education": [
@@ -44,78 +67,55 @@ RESUME_DATA = {
             "degree": "B.S. in Computer Science",
             "university": "University of Technology",
             "year": "2020 - 2024",
-            "details": "Specialization in Systems Engineering and Distributed Computing. GPA: 3.9/4.0"
+            "details": "Specialization in systems engineering, product development, and distributed computing."
         }
     ],
     "projects": [
         {
-            "name": "ESP32 Emulator",
-            "description": "A high-performance C++ Emulator mapping real-world physical pin instructions to virtual execution engines.",
-            "stars": "Loading...",
-            "forks": "Loading..."
+            "name": "Resume Terminal",
+            "description": "A cinematic resume website that presents professional experience inside a custom terminal-inspired interface.",
+            "outcome": "Transforms a standard resume into an immersive portfolio presentation with strong personal branding.",
+            "stars": "Featured",
+            "forks": "UI Case Study",
+            "stack": ["HTML", "CSS", "JavaScript"],
+            "link": "https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume"
         },
         {
             "name": "Algorand App",
-            "description": "Decentralized state-machine smart contract framework heavily bridging web3 cryptography.",
-            "stars": "Loading...",
-            "forks": "Loading..."
+            "description": "A decentralized application concept focused on stateful workflows, cryptographic interactions, and clear user flows.",
+            "outcome": "Explores blockchain product UX with a stronger emphasis on accessibility and structured frontend patterns.",
+            "stars": "Web3",
+            "forks": "Product Build",
+            "stack": ["React", "Web3", "Smart Contracts"]
         },
         {
             "name": "WhatsApp Bot",
-            "description": "An autonomous AI triage integration designed to manage thousands of concurrent message requests via dynamic queues.",
-            "stars": "Loading...",
-            "forks": "Loading..."
+            "description": "An automation-first messaging workflow designed to triage requests, coordinate queues, and reduce manual overhead.",
+            "outcome": "Improves response handling through systemized message routing and backend orchestration.",
+            "stars": "Automation",
+            "forks": "Backend System",
+            "stack": ["Node.js", "APIs", "Queueing"]
         }
     ],
     "contact": {
         "email": "shaurya@example.com",
         "github": "https://github.com/harkarshaurya-eng",
-        "linkedin": "https://linkedin.com/in/shaurya-harkar"
+        "linkedin": "https://linkedin.com/in/shaurya-harkar",
+        "cta": "Open for collaborations where strong design and dependable engineering need to work together."
     },
     "metadata": {
-        "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "last_updated": datetime.now().strftime("%Y-%m-%d"),
+        "terminal_label": "shaurya@resume-terminal"
     }
 }
 
-def fetch_github_stats():
-    print("Fetching live repository stats from GitHub...")
-    try:
-        req = urllib.request.Request(API_URL, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req) as response:
-            if response.status == 200:
-                data = json.loads(response.read().decode())
-                
-                # Match projects by fuzzy name logic
-                for repo in data:
-                    repo_name = repo.get("name", "").lower()
-                    for proj in RESUME_DATA["projects"]:
-                        # Soft match for Algorand, WhatsApp, etc.
-                        if proj["name"].lower().split()[0] in repo_name:
-                            proj["stars"] = str(repo.get("stargazers_count", 0))
-                            proj["forks"] = str(repo.get("forks_count", 0))
-                print("Successfully synced GitHub statistics!")
-            else:
-                print(f"Warning: GitHub API returned {response.status}. Using fallback static data.")
-    except Exception as e:
-        print(f"Failed to reach GitHub API: {e}. Using fallback static data.")
-
-def fetch_profile_photo():
-    print("Downloading local visual profile artifacts...")
-    photo_url = f"https://avatars.githubusercontent.com/{GITHUB_USERNAME}"
-    output_path = os.path.join(os.path.dirname(__file__), "profile.jpg")
-    try:
-        urllib.request.urlretrieve(photo_url, output_path)
-    except Exception as e:
-        print(f"Skipping profile image: {e}")
 
 def main():
-    fetch_github_stats()
-    # fetch_profile_photo() Disabled to preserve custom user-uploaded portrait
-    
     output_path = os.path.join(os.path.dirname(__file__), "data.json")
     with open(output_path, "w", encoding="utf-8") as file:
         json.dump(RESUME_DATA, file, indent=2)
-    print(f"Built resume dataset natively into: {output_path}")
+    print(f"Built resume dataset into: {output_path}")
+
 
 if __name__ == "__main__":
     main()
