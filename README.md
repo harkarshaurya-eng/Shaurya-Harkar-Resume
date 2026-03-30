@@ -8,7 +8,7 @@ A polished terminal-inspired resume website built as a static site for GitHub Pa
 - CSS
 - JavaScript
 - JSON-driven content
-- GitHub Pages deployment via GitHub Actions
+- GitHub Pages static hosting
 
 ## Local Preview
 
@@ -31,17 +31,15 @@ http://localhost:4173
 
 ## Deployment
 
-This repo includes `.github/workflows/deploy-pages.yml`.
+Use GitHub Pages with:
 
-After pushing to `main`, GitHub Actions will publish the static site to GitHub Pages using:
+- Source: `Deploy from a branch`
+- Branch: `main`
+- Folder: `/(root)`
 
-- `index.html`
-- `styles.css`
-- `main.js`
-- `data.json`
-- `profile.jpg`
+The `.nojekyll` file is included so GitHub Pages serves the static files directly.
 
-Expected Pages URL:
+Pages URL:
 
 ```text
 https://harkarshaurya-eng.github.io/Shaurya-Harkar-Resume/
