@@ -53,7 +53,7 @@ const bootLines = [
   "loading command handlers...",
   "launch complete"
 ];
-const assetVersion = "20260330-5";
+const assetVersion = "20260330-6";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -491,8 +491,11 @@ function buildGmailComposeUrl(email) {
   const body = [
     "Hello Shaurya,",
     "",
-    "It is a pleasure to connect with you.",
-    "I would be glad to connect with you regarding potential opportunities.",
+    "It’s a pleasure connecting with you. I’ve had the opportunity to review your profile and was genuinely impressed by your work and experience.",
+    "",
+    "I would be glad to connect further and explore potential opportunities where your skills could be a great fit.",
+    "",
+    "Looking forward to hearing from you.",
     "",
     "Best regards,",
     "[Your Name]"
@@ -593,7 +596,7 @@ async function initializeTerminal(data) {
       );
       addOutputLine(
         output,
-        `Prefilled message: <span class="output-inline">It is a pleasure to connect with you.</span>`,
+        `Prefilled message: <span class="output-inline">It’s a pleasure connecting with you. I’ve had the opportunity to review your profile and was genuinely impressed by your work and experience.</span>`,
         "system"
       );
     }
