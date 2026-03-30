@@ -52,7 +52,7 @@ const bootLines = [
   "loading command handlers...",
   "launch complete"
 ];
-const assetVersion = "20260330-8";
+const assetVersion = "20260330-9";
 
 function escapeHtml(value = "") {
   return String(value)
