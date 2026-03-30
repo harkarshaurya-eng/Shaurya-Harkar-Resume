@@ -17,10 +17,8 @@ RESUME_DATA = {
         ]
     },
     "stats": [
-        {"label": "Focus", "value": "UI Systems"},
-        {"label": "Stack", "value": "React + Node"},
-        {"label": "Workflow", "value": "Design to Deploy"},
-        {"label": "Status", "value": "Remote Ready"}
+        {"label": "Focus", "value": "Flutter applications, AI integration for problem solving"},
+        {"label": "Stack", "value": "React + Node"}
     ],
     "skills": [
         {

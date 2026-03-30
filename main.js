@@ -35,7 +35,6 @@ const elements = {
   heroTagline: byId("hero-tagline"),
   heroBio: byId("hero-bio"),
   heroLocation: byId("hero-location"),
-  heroAvailability: byId("hero-availability"),
   heroUpdated: byId("hero-updated"),
   statsGrid: byId("stats-grid"),
   heroActions: byId("hero-actions"),
@@ -53,7 +52,7 @@ const bootLines = [
   "loading command handlers...",
   "launch complete"
 ];
-const assetVersion = "20260330-6";
+const assetVersion = "20260330-7";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -347,7 +346,6 @@ function applyHero(data) {
   elements.heroTagline.textContent = data.about.tagline || "";
   elements.heroBio.textContent = data.about.bio;
   elements.heroLocation.textContent = data.about.location || "Remote";
-  elements.heroAvailability.textContent = data.about.availability || "Available";
   elements.heroUpdated.textContent = data.metadata.last_updated || "Latest";
 }
 

@@ -15,19 +15,11 @@
   "stats": [
     {
       "label": "Focus",
-      "value": "UI Systems"
+      "value": "Flutter applications, AI integration for problem solving"
     },
     {
       "label": "Stack",
       "value": "React + Node"
-    },
-    {
-      "label": "Workflow",
-      "value": "Design to Deploy"
-    },
-    {
-      "label": "Status",
-      "value": "Remote Ready"
     }
   ],
   "skills": [
