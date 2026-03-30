@@ -2,7 +2,7 @@ const sectionDefinitions = [
   { id: "overview", label: "Overview", title: "Profile Snapshot", command: "cat profile.md" },
   { id: "experience", label: "Experience", title: "Experience Log", command: "tail experience.log" },
   { id: "skills", label: "Skills", title: "Skills Matrix", command: "ls stack/" },
-  { id: "projects", label: "Projects", title: "Selected Projects", command: "open case-studies/" },
+  { id: "projects", label: "Projects", title: "Projects", command: "open projects/" },
   { id: "education", label: "Education", title: "Education Archive", command: "cat education.txt" },
   { id: "contact", label: "Contact", title: "Contact Endpoint", command: "ping collaborators" },
   { id: "terminal", label: "Commands", title: "Command Terminal", command: "sudo --help" }
@@ -53,7 +53,7 @@ const bootLines = [
   "loading command handlers...",
   "launch complete"
 ];
-const assetVersion = "20260330-4";
+const assetVersion = "20260330-5";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -243,16 +243,10 @@ function renderContact(data) {
     .join("");
 
   return `
-    <div class="contact-grid">
-      <article class="mini-panel">
-        <p class="mini-title">Reach Out</p>
-        <ul class="contact-list">${contactItems}</ul>
-      </article>
-      <article class="mini-panel">
-        <p class="mini-title">Collaboration</p>
-        <p class="contact-note">${escapeHtml(data.contact.cta || "")}</p>
-      </article>
-    </div>
+    <article class="mini-panel">
+      <p class="mini-title">Reach Out</p>
+      <ul class="contact-list">${contactItems}</ul>
+    </article>
   `;
 }
 

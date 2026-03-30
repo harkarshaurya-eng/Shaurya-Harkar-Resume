@@ -24,16 +24,18 @@ RESUME_DATA = {
     ],
     "skills": [
         {
-            "category": "Frontend Design",
-            "items": ["Responsive UI", "React", "Next.js", "TypeScript", "Motion Design", "Accessibility"]
-        },
-        {
-            "category": "Backend & Platform",
-            "items": ["Node.js", "Express", "REST APIs", "Docker", "AWS", "GitHub Actions"]
-        },
-        {
-            "category": "Creative Delivery",
-            "items": ["Design Systems", "Brand-Led Layouts", "Performance Tuning", "Component Architecture", "Git", "Developer Experience"]
+            "category": "Core Skills",
+            "items": [
+                "Flutter (Dart) Developer",
+                "Supabase",
+                "Algorand",
+                "Python",
+                "C/C++",
+                "Business Problem Solving",
+                "Bug Bounty Hunter",
+                "Training Local AIs",
+                "AI Integration in Flutter Applications"
+            ]
         }
     ],
     "experience": [
@@ -64,10 +66,10 @@ RESUME_DATA = {
     ],
     "education": [
         {
-            "degree": "B.S. in Computer Science",
-            "university": "University of Technology",
-            "year": "2020 - 2024",
-            "details": "Specialization in systems engineering, product development, and distributed computing."
+            "degree": "BTech Computer Engineering",
+            "university": "Pimpri Chinchwad College Of Engineering, Akurdi",
+            "year": "2025 - 2029",
+            "details": ""
         }
     ],
     "projects": [
