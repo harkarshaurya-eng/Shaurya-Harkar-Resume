@@ -98,7 +98,7 @@ RESUME_DATA = {
         }
     ],
     "contact": {
-        "email": "shaurya@example.com",
+        "email": "harkarshaurya@gmail.com",
         "github": "https://github.com/harkarshaurya-eng",
         "linkedin": "https://linkedin.com/in/shaurya-harkar",
         "cta": "Open for collaborations where strong design and dependable engineering need to work together."

@@ -12,8 +12,14 @@
 - Static asset rendering
 - JSON-driven content
 - Vanilla JavaScript
+- Browser Fetch API
 - DOM manipulation
 - Dynamic section rendering
+- Terminal command parsing
+- Live interaction counters
+- Public counter API integration
+- Local storage fallback
+- Gmail compose deep links
 - Smooth scrolling
 - Intersection Observer
 - Accessible image alt text
