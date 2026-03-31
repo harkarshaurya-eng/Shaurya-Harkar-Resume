@@ -84,6 +84,14 @@ RESUME_DATA = {
     ],
     "projects": [
         {
+            "name": "StudyGrasp",
+            "description": "A learning app based on a time-constrained forced-learning technique to help students memorize faster and more efficiently.",
+            "outcome": "Combines an integrated AI chatbot helper named Suresh with a timetable-based lecture notification system to keep study sessions structured and responsive.",
+            "stars": "Flutter App",
+            "forks": "AI Learning System",
+            "stack": ["Flutter", "Dart", "AI Chatbot", "Notifications"]
+        },
+        {
             "name": "Resume Terminal",
             "description": "A cinematic resume website that presents professional experience inside a custom terminal-inspired interface.",
             "outcome": "Transforms a standard resume into an immersive portfolio presentation with strong personal branding.",
