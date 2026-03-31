@@ -563,75 +563,12 @@ h1 {
 }
 
 .terminal-console {
-  gap: 18px;
-}
-
-.terminal-console-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 18px;
-}
-
-.command-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 10px;
-}
-
-.command-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(10, 10, 10, 0.92);
-}
-
-.command-name,
-.command-count {
-  color: #ffffff;
-  font-size: 0.84rem;
-}
-
-.command-count {
-  color: var(--text-dim);
-  white-space: nowrap;
-}
-
-.command-chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.command-chip {
-  min-height: 40px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: #ffffff;
-  font-family: inherit;
-  font-size: 0.82rem;
-  cursor: pointer;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
-}
-
-.command-chip:hover,
-.command-chip:focus-visible {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-  outline: none;
+  gap: 14px;
 }
 
 .terminal-output {
-  min-height: 220px;
-  max-height: 320px;
+  min-height: 300px;
+  max-height: 420px;
   overflow: auto;
   padding: 16px;
   border: 1px solid var(--line);
@@ -670,9 +607,13 @@ h1 {
 
 .command-form {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
   gap: 12px;
   align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(6, 6, 6, 0.96);
 }
 
 .command-label {
@@ -683,10 +624,10 @@ h1 {
 .command-input {
   width: 100%;
   min-height: 48px;
-  padding: 0 14px;
-  border: 1px solid var(--line-strong);
-  border-radius: 12px;
-  background: #050505;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: #ffffff;
   font: inherit;
 }
@@ -696,26 +637,6 @@ h1 {
 }
 
 .command-input:focus {
-  outline: 1px solid rgba(255, 255, 255, 0.4);
-  outline-offset: 0;
-}
-
-.command-submit {
-  min-height: 48px;
-  padding: 0 18px;
-  border: 1px solid #ffffff;
-  border-radius: 12px;
-  background: transparent;
-  color: #ffffff;
-  font: inherit;
-  cursor: pointer;
-  transition: background 160ms ease, color 160ms ease;
-}
-
-.command-submit:hover,
-.command-submit:focus-visible {
-  background: #ffffff;
-  color: #000000;
   outline: none;
 }
 
@@ -895,7 +816,6 @@ code {
   .overview-grid,
   .hobbies-grid,
   .contact-grid,
-  .terminal-console-head,
   .skills-grid,
   .projects-grid,
   .stats-grid {
@@ -968,10 +888,6 @@ code {
   }
 
   .command-form {
-    grid-template-columns: 1fr;
-  }
-
-  .command-label {
-    display: none;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 }

@@ -6,7 +6,7 @@ const sectionDefinitions = [
   { id: "education", label: "Education", title: "Education Archive", command: "cat education.txt" },
   { id: "hobbies", label: "Hobbies", title: "Personal Hobbies", command: "cat hobbies.txt" },
   { id: "contact", label: "Contact", title: "Contact Endpoint", command: "ping collaborators" },
-  { id: "terminal", label: "Commands", title: "Command Terminal", command: "sudo --help" }
+  { id: "terminal", label: "Terminal", title: "Interactive Terminal", command: "bash ./resume-terminal.sh" }
 ];
 
 const counterNamespace = "shaurya-harkar-resume-terminal";
@@ -14,15 +14,15 @@ const counterStoragePrefix = "resume-terminal-counter:";
 const counterConfig = {
   like: {
     key: "profile-like",
-    label: "sudo like profile"
+    label: "like"
   },
   love: {
     key: "profile-love",
-    label: "sudo love profile"
+    label: "love"
   },
   hired: {
     key: "want-hired",
-    label: "sudo want hired"
+    label: "hire"
   }
 };
 
@@ -53,7 +53,7 @@ const bootLines = [
   "loading command handlers...",
   "launch complete"
 ];
-const assetVersion = "20260331-2";
+const assetVersion = "20260331-3";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -268,46 +268,9 @@ function renderContact(data) {
 }
 
 function renderTerminal() {
-  const commandRows = Object.entries(counterConfig)
-    .map(
-      ([name, config]) => `
-        <li class="command-item">
-          <span class="command-name">${escapeHtml(config.label)}</span>
-          <span class="command-count" id="counter-${name}">...</span>
-        </li>
-      `
-    )
-    .join("");
-
-  const quickButtons = [
-    counterConfig.like.label,
-    counterConfig.love.label,
-    counterConfig.hired.label,
-    "sudo contact"
-  ]
-    .map(
-      (command) => `
-        <button class="command-chip" type="button" data-command="${escapeHtml(command)}">
-          ${escapeHtml(command)}
-        </button>
-      `
-    )
-    .join("");
-
   return `
     <div class="section-body">
       <article class="mini-panel terminal-console">
-        <div class="terminal-console-head">
-          <div>
-            <p class="mini-title">Available Commands</p>
-            <ul class="command-list">${commandRows}</ul>
-          </div>
-          <div>
-            <p class="mini-title">Quick Run</p>
-            <div class="command-chip-row">${quickButtons}</div>
-          </div>
-        </div>
-
         <div class="terminal-output" id="command-output" aria-live="polite"></div>
 
         <form class="command-form" id="command-form">
@@ -319,9 +282,8 @@ function renderTerminal() {
             type="text"
             autocomplete="off"
             spellcheck="false"
-            placeholder="sudo like profile"
+            placeholder="whoami"
           />
-          <button class="command-submit" type="submit">Run</button>
         </form>
       </article>
     </div>
@@ -530,47 +492,79 @@ function buildGmailComposeUrl(email) {
   return `https://mail.google.com/mail/?${params.toString()}`;
 }
 
+function formatInlineList(items = []) {
+  return items.map((item) => `<span class="output-inline">${escapeHtml(item)}</span>`).join("  ");
+}
+
 function resolveCommand(command) {
   const normalized = command.trim().toLowerCase().replace(/\s+/g, " ");
 
-  switch (normalized) {
-    case "sudo like profile":
-      return { type: "count", action: "like" };
-    case "sudo love profile":
-      return { type: "count", action: "love" };
-    case "sudo want hired":
-      return { type: "count", action: "hired" };
-    case "sudo contact":
-      return { type: "contact" };
-    default:
-      return null;
+  if (!normalized) {
+    return null;
   }
+
+  if (normalized === "help") {
+    return { type: "help" };
+  }
+
+  if (normalized === "clear") {
+    return { type: "clear" };
+  }
+
+  if (normalized === "whoami") {
+    return { type: "whoami" };
+  }
+
+  if (normalized === "pwd") {
+    return { type: "pwd" };
+  }
+
+  if (normalized === "ls" || normalized === "ls -la" || normalized === "ls -l") {
+    return { type: "ls-root" };
+  }
+
+  if (normalized === "ls projects" || normalized === "ls projects/") {
+    return { type: "ls-projects" };
+  }
+
+  if (normalized === "cat intro.txt") {
+    return { type: "cat-intro" };
+  }
+
+  if (normalized === "cat hobbies.txt") {
+    return { type: "cat-hobbies" };
+  }
+
+  if (normalized === "cat contact.txt") {
+    return { type: "cat-contact" };
+  }
+
+  if (normalized === "cat reactions.log") {
+    return { type: "cat-reactions" };
+  }
+
+  if (
+    normalized === "open mailto" ||
+    normalized === "open mailto:" ||
+    normalized === "open mailto:shaurya" ||
+    normalized === "open contact"
+  ) {
+    return { type: "contact" };
+  }
+
+  const reactionMatch = normalized.match(/^echo (like|love|hire|hired) >> reactions\.log$/);
+  if (reactionMatch) {
+    const action = reactionMatch[1] === "hire" ? "hired" : reactionMatch[1];
+    return { type: "count", action };
+  }
+
+  return null;
 }
 
 async function initializeTerminal(data) {
   const output = byId("command-output");
   const form = byId("command-form");
   const input = byId("command-input");
-  const countElements = {
-    like: byId("counter-like"),
-    love: byId("counter-love"),
-    hired: byId("counter-hired")
-  };
-  const commandChips = [...document.querySelectorAll(".command-chip")];
-
-  function setCountLabel(name, count, source) {
-    const sourceLabel = source === "live" ? "live" : "local";
-    countElements[name].textContent = `${count} | ${sourceLabel}`;
-  }
-
-  async function refreshCounts() {
-    await Promise.all(
-      Object.entries(counterConfig).map(async ([name, config]) => {
-        const result = await getCounterValue(config.key);
-        setCountLabel(name, result.value, result.source);
-      })
-    );
-  }
 
   async function runCommand(rawCommand) {
     const command = rawCommand.trim();
@@ -585,19 +579,97 @@ async function initializeTerminal(data) {
     if (!resolved) {
       addOutputLine(
         output,
-        `Unknown command. Try <span class="output-inline">sudo like profile</span>, <span class="output-inline">sudo love profile</span>, <span class="output-inline">sudo want hired</span>, or <span class="output-inline">sudo contact</span>.`,
+        `Command not found. Type <span class="output-inline">help</span> to inspect supported commands.`,
         "error"
       );
+      return;
+    }
+
+    if (resolved.type === "clear") {
+      output.innerHTML = "";
+      return;
+    }
+
+    if (resolved.type === "help") {
+      addOutputLine(output, "Available commands:", "system");
+      addOutputLine(output, `<span class="output-inline">whoami</span>  <span class="output-inline">pwd</span>  <span class="output-inline">ls</span>  <span class="output-inline">ls projects/</span>`, "system");
+      addOutputLine(output, `<span class="output-inline">cat intro.txt</span>  <span class="output-inline">cat hobbies.txt</span>  <span class="output-inline">cat contact.txt</span>  <span class="output-inline">cat reactions.log</span>`, "system");
+      addOutputLine(output, `<span class="output-inline">echo like >> reactions.log</span>  <span class="output-inline">echo love >> reactions.log</span>  <span class="output-inline">echo hire >> reactions.log</span>`, "system");
+      addOutputLine(output, `<span class="output-inline">open mailto:shaurya</span>  <span class="output-inline">clear</span>`, "system");
+      return;
+    }
+
+    if (resolved.type === "whoami") {
+      addOutputLine(output, `<span class="output-inline">${escapeHtml(data.about.name)}</span>`, "success");
+      addOutputLine(output, escapeHtml(data.about.title), "system");
+      return;
+    }
+
+    if (resolved.type === "pwd") {
+      addOutputLine(output, `<span class="output-inline">/home/shaurya/resume-terminal</span>`, "system");
+      return;
+    }
+
+    if (resolved.type === "ls-root") {
+      addOutputLine(
+        output,
+        formatInlineList(["intro.txt", "projects/", "hobbies.txt", "contact.txt", "reactions.log"]),
+        "system"
+      );
+      return;
+    }
+
+    if (resolved.type === "ls-projects") {
+      addOutputLine(
+        output,
+        formatInlineList((data.projects || []).map((project) => project.name)),
+        "system"
+      );
+      return;
+    }
+
+    if (resolved.type === "cat-intro") {
+      addOutputLine(output, `<span class="output-inline">${escapeHtml(data.about.title)}</span>`, "success");
+      addOutputLine(output, escapeHtml(data.about.tagline || ""), "system");
+      addOutputLine(output, escapeHtml(data.about.bio), "system");
+      return;
+    }
+
+    if (resolved.type === "cat-hobbies") {
+      (data.hobbies || []).forEach((hobby) => {
+        addOutputLine(
+          output,
+          `<span class="output-inline">${escapeHtml(hobby.name)}</span>: ${escapeHtml(hobby.note || hobby.detail || "")}`,
+          "system"
+        );
+      });
+      return;
+    }
+
+    if (resolved.type === "cat-contact") {
+      addOutputLine(output, `email: <span class="output-inline">${escapeHtml(data.contact.email || "")}</span>`, "system");
+      addOutputLine(output, `github: <span class="output-inline">${escapeHtml(data.contact.github || "")}</span>`, "system");
+      addOutputLine(output, `linkedin: <span class="output-inline">${escapeHtml(data.contact.linkedin || "")}</span>`, "system");
+      return;
+    }
+
+    if (resolved.type === "cat-reactions") {
+      const results = await Promise.all(
+        Object.entries(counterConfig).map(async ([name, config]) => {
+          const result = await getCounterValue(config.key);
+          return `${name}=${result.value} [${result.source}]`;
+        })
+      );
+      addOutputLine(output, results.map((item) => `<span class="output-inline">${escapeHtml(item)}</span>`).join("  "), "system");
       return;
     }
 
     if (resolved.type === "count") {
       const config = counterConfig[resolved.action];
       const result = await incrementCounterValue(config.key);
-      setCountLabel(resolved.action, result.value, result.source);
       addOutputLine(
         output,
-        `${escapeHtml(config.label)} accepted. Current count: <span class="output-inline">${result.value}</span> <span class="output-meta">[${result.source}]</span>`,
+        `reactions.log updated: <span class="output-inline">${escapeHtml(config.label)}</span> count is now <span class="output-inline">${result.value}</span> <span class="output-meta">[${result.source}]</span>`,
         "success"
       );
       return;
@@ -613,32 +685,25 @@ async function initializeTerminal(data) {
       );
       addOutputLine(
         output,
-        `Prefilled message: <span class="output-inline">It’s a pleasure connecting with you. I’ve had the opportunity to review your profile and was genuinely impressed by your work and experience.</span>`,
+        `Prefilled subject: <span class="output-inline">Glad to Connect With You</span>`,
         "system"
       );
+      return;
     }
   }
 
-  addOutputLine(output, "Command terminal ready.", "system");
-  addOutputLine(output, "Use the commands below to react to the profile or open a Gmail draft.", "system");
-
-  await refreshCounts();
+  addOutputLine(
+    output,
+    `Last login: <span class="output-inline">${escapeHtml(data.metadata.last_updated || "2026-03-31")}</span> on <span class="output-inline">resume-terminal</span>`,
+    "system"
+  );
+  addOutputLine(output, `Type <span class="output-inline">help</span> to inspect available commands.`, "system");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     await runCommand(input.value);
     form.reset();
     input.focus();
-  });
-
-  commandChips.forEach((chip) => {
-    chip.addEventListener("click", async () => {
-      const command = chip.dataset.command || "";
-      input.value = command;
-      await runCommand(command);
-      form.reset();
-      input.focus();
-    });
   });
 }
 
