@@ -81,6 +81,18 @@
       "details": ""
     }
   ],
+  "hobbies": [
+    {
+      "name": "Reading Books",
+      "detail": "Enjoy exploring thoughtful writing and ideas through books.",
+      "note": "Recent read: The Modest Proposal"
+    },
+    {
+      "name": "Coding In Dart",
+      "detail": "Spend free time building with Dart and sharpening application logic through hands-on coding.",
+      "note": "Preferred for experimenting with app ideas and clean implementation patterns."
+    }
+  ],
   "projects": [
     {
       "name": "Resume Terminal",

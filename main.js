@@ -4,6 +4,7 @@ const sectionDefinitions = [
   { id: "skills", label: "Skills", title: "Skills Matrix", command: "ls stack/" },
   { id: "projects", label: "Projects", title: "Projects", command: "open projects/" },
   { id: "education", label: "Education", title: "Education Archive", command: "cat education.txt" },
+  { id: "hobbies", label: "Hobbies", title: "Personal Hobbies", command: "cat hobbies.txt" },
   { id: "contact", label: "Contact", title: "Contact Endpoint", command: "ping collaborators" },
   { id: "terminal", label: "Commands", title: "Command Terminal", command: "sudo --help" }
 ];
@@ -52,7 +53,7 @@ const bootLines = [
   "loading command handlers...",
   "launch complete"
 ];
-const assetVersion = "20260331-1";
+const assetVersion = "20260331-2";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -226,6 +227,23 @@ function renderEducation(data) {
   return `<div class="education-list">${items}</div>`;
 }
 
+function renderHobbies(data) {
+  const items = (data.hobbies || [])
+    .map(
+      (item) => `
+        <article class="mini-panel hobby-panel">
+          <p class="mini-title">Interest</p>
+          <h3 class="hobby-title">${escapeHtml(item.name)}</h3>
+          <p class="copy-block">${escapeHtml(item.detail)}</p>
+          ${item.note ? `<p class="hobby-note">${escapeHtml(item.note)}</p>` : ""}
+        </article>
+      `
+    )
+    .join("");
+
+  return `<div class="hobbies-grid">${items}</div>`;
+}
+
 function renderContact(data) {
   const contactItems = [
     data.contact.email
@@ -317,6 +335,7 @@ function buildSections(data) {
     skills: renderSkills(data),
     projects: renderProjects(data),
     education: renderEducation(data),
+    hobbies: renderHobbies(data),
     contact: renderContact(data),
     terminal: renderTerminal(data)
   };
