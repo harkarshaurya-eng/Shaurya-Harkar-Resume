@@ -48,18 +48,6 @@ RESUME_DATA = {
                 "Turned complex product requirements into clean implementation plans with a strong focus on maintainable systems."
             ],
             "stack": ["React", "Node.js", "AWS", "Design Systems"]
-        },
-        {
-            "role": "Frontend & Platform Developer",
-            "company": "Global Systems LLC",
-            "duration": "2022 - 2023",
-            "summary": "Worked across modern frontend migration, internal tooling, and quality improvements for production releases.",
-            "bullets": [
-                "Collaborated on modern React pipelines, improving performance, accessibility, and implementation consistency.",
-                "Developed internal tooling and testing support for cross-platform application releases.",
-                "Partnered with senior engineers to translate evolving product needs into dependable frontend components."
-            ],
-            "stack": ["React", "Testing", "Platform Tooling"]
         }
     ],
     "education": [
