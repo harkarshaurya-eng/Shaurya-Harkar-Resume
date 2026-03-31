@@ -5,9 +5,9 @@ from datetime import datetime
 RESUME_DATA = {
     "about": {
         "name": "Shaurya Harkar",
-        "title": "Web Designer & Full-Stack Developer",
-        "tagline": "Designing terminal-inspired interfaces and shipping full-stack products with polish.",
-        "bio": "I build immersive digital experiences that balance visual identity, responsive UI, and dependable backend thinking. My work blends product design instincts with implementation discipline so ideas move cleanly from concept to deployment.",
+        "title": "Flutter Developer & Machine Learning Enthusiast",
+        "tagline": "Building high-performance mobile apps and intelligent systems with a focus on clean design and real-world impact.",
+        "bio": "I develop scalable Flutter applications with smooth UI/UX and integrate machine learning to create smart, responsive products. My work combines strong product intuition with solid engineering, turning ideas into fast, reliable, and user-focused applications.",
         "location": "India / Remote",
         "availability": "Available for freelance, contract, and full-time opportunities.",
         "highlights": [
