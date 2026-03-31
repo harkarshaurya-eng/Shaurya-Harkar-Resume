@@ -92,6 +92,14 @@ RESUME_DATA = {
             "stack": ["Flutter", "Dart", "AI Chatbot", "Notifications"]
         },
         {
+            "name": "Netfree Pay",
+            "description": "A working simulation of an offline UPI payment system built around tokenization and after-sync transaction handling for low-connectivity environments.",
+            "outcome": "The model captures payment intents offline, verifies them through secure token flows, and syncs them once connectivity returns. It was designed with layered safeguards including bcrypt-based credential protection, AES-256 encryption, SHA-256 hashing, and additional validation checks to keep payment data dependable and secure.",
+            "stars": "Offline Fintech",
+            "forks": "Working Prototype",
+            "stack": ["Tokenization", "Offline Sync", "UPI Simulation", "bcrypt", "AES-256", "SHA-256"]
+        },
+        {
             "name": "Resume Terminal",
             "description": "A cinematic resume website that presents professional experience inside a custom terminal-inspired interface.",
             "outcome": "Transforms a standard resume into an immersive portfolio presentation with strong personal branding.",
