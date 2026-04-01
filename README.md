@@ -28,3 +28,8 @@
 - GitHub
 - GitHub Pages
 - `.nojekyll`
+
+
+
+
+Check out-https://harkarshaurya-eng.github.io/Shaurya-Harkar-Resume/?v=8d18f40
