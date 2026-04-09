@@ -45,9 +45,9 @@
       "duration": "2028",
       "summary": "",
       "bullets": [
-        "Designed and shipped responsive product surfaces that improved usability across desktop and mobile workflows.",
-        "Built Node.js service layers and reusable frontend patterns that accelerated delivery across multiple releases.",
-        "Turned complex product requirements into clean implementation plans with a strong focus on maintainable systems."
+        "SocialGradient:This is an private messaging app which keeps the user identity anonymous.",
+        "CityLens AI(Cresendo 24hr Hackthon):The complete digital version of Pune,the Ai predicts the number of people and buildings to be removed for making new infrastructure project,the approximate cost of project,cost of acquisition of land and time saved from the project,etc."
+         
       ],
       "stack": [
         "Flutter",
