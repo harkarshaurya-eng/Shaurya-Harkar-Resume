@@ -19,7 +19,7 @@
     },
     {
       "label": "Stack",
-      "value": "React + Node"
+      "value": "Flutter+ML"
     }
   ],
   "skills": [
@@ -40,20 +40,20 @@
   ],
   "experience": [
     {
-      "role": "Lead Full-Stack Developer",
-      "company": "Tech Innovations Inc.",
-      "duration": "2023 - Present",
-      "summary": "Leading product delivery across interface design, frontend architecture, and scalable service integrations.",
+      "role": "Tech Student",
+      "company": "Comming soon",
+      "duration": "2028",
+      "summary": "",
       "bullets": [
         "Designed and shipped responsive product surfaces that improved usability across desktop and mobile workflows.",
         "Built Node.js service layers and reusable frontend patterns that accelerated delivery across multiple releases.",
         "Turned complex product requirements into clean implementation plans with a strong focus on maintainable systems."
       ],
       "stack": [
-        "React",
-        "Node.js",
-        "AWS",
-        "Design Systems"
+        "Flutter",
+        "Pytorch",
+        "Android studio",
+        "Supabase"
       ]
     }
   ],
@@ -132,9 +132,9 @@
       ]
     },
     {
-      "name": "WhatsApp Bot",
+      "name": "WhatsApp AI agent for businesses",
       "description": "An automation-first messaging workflow designed to triage requests, coordinate queues, and reduce manual overhead.",
-      "outcome": "Improves response handling through systemized message routing and backend orchestration.",
+      "outcome": "Improves response handling through systemized message routing and backend orchestration.I was developed to be applied to a personal CRM system.",
       "stars": "Automation",
       "forks": "Backend System",
       "stack": [
