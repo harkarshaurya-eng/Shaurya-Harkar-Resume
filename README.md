@@ -1,35 +1,8 @@
-- HTML5
-- Semantic markup
-- CSS custom properties
-- CSS Grid
-- Flexbox
-- Responsive web design
-- Mobile-first adaptation
-- Terminal-inspired UI design
-- Terminal boot sequence
-- Black and white color system
-- Scrollable content panels
-- Static asset rendering
-- JSON-driven content
-- Vanilla JavaScript
-- Browser Fetch API
-- DOM manipulation
-- Dynamic section rendering
-- Terminal command parsing
-- Live interaction counters
-- Public counter API integration
-- Local storage fallback
-- Gmail compose deep links
-- Smooth scrolling
-- Intersection Observer
-- Accessible image alt text
-- Focus-visible interactions
-- Git
-- GitHub
-- GitHub Pages
-- `.nojekyll`
+'''
+cd Desktop
+mkdir shaurya-Resume
+cd shaurya-Resume
+git clone https://github.com/harkarshaurya-eng/Shaurya-Harkar-Resume.git
 
-
-
-
-Check out-https://harkarshaurya-eng.github.io/Shaurya-Harkar-Resume/?v=8d18f40
+'''
+now run the website to view the terminal based Resume  
